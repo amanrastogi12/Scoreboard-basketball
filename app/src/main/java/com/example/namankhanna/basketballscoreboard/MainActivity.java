@@ -7,9 +7,12 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -65,12 +68,17 @@ public class MainActivity extends AppCompatActivity implements TeamDialog.OnPosi
 
     @Override
     public void getTeamNames(String team1, String team2) {
-        boolean res = teamDatabaseHelper.writeData(team1, team2);
-        if(res)
-            Log.d(TAG, "Database write successful");
-        else
-            Log.d(TAG, "Database write unsuccessful");
-        teamArrayList.add(new Team(team1, team2));
-        teamsAdapter.notifyDataSetChanged();
+        if(!TextUtils.isEmpty(team1) && !TextUtils.isEmpty(team2)) {
+            boolean res = teamDatabaseHelper.writeData(team1, team2);
+            if(res)
+                Log.d(TAG, "Database write successful");
+            else
+                Log.d(TAG, "Database write unsuccessful");
+            teamArrayList.add(new Team(team1, team2));
+            teamsAdapter.notifyDataSetChanged();
+        }
+        else {
+            Toast.makeText(this, "Kindly enter both the team names", Toast.LENGTH_SHORT).show();
+        }
     }
 }
