@@ -1,5 +1,6 @@
 package com.example.namankhanna.basketballscoreboard;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -40,7 +41,15 @@ public class MainActivity extends AppCompatActivity implements TeamDialog.OnPosi
         rvListTeams.setLayoutManager(new LinearLayoutManager(this));
         teamsAdapter = new TeamsAdapter(teamArrayList, this);
         rvListTeams.setAdapter(teamsAdapter);
-
+        teamsAdapter.setOnTeamNameListener(new OnTeamNameListener() {
+            @Override
+            public void getTeamNames(String team1, String team2) {
+                Intent i = new Intent(MainActivity.this, PlayerActivity.class);
+                i.putExtra("TEAM1", team1);
+                i.putExtra("TEAM2", team2);
+                startActivity(i);
+            }
+        });
         fabAddTeams.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
