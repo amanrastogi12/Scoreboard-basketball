@@ -98,8 +98,8 @@ public class PlayerActivity extends AppCompatActivity {
         if(players1.size() < 10) {
             players1.add(new Players(name, tNum));
             adapter1.updatePlayers(players1);
-//            etTeam1.setText("");
-//            etTNum1.setText("");
+            etTeam1.setText("");
+            etTNum1.setText("");
         }
         else {
             Toast.makeText(this, "Cannot add more players", Toast.LENGTH_SHORT).show();
@@ -118,8 +118,8 @@ public class PlayerActivity extends AppCompatActivity {
         if(players2.size() < 10) {
             players2.add(new Players(name, tNum));
             adapter2.updatePlayers(players2);
-//            etTeam2.setText("");
-//            etTNum2.setText("");
+            etTeam2.setText("");
+            etTNum2.setText("");
         }
         else {
             Toast.makeText(this, "Cannot add more players", Toast.LENGTH_SHORT).show();
