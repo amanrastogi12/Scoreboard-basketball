@@ -15,6 +15,8 @@ public class TeamsAdapter extends RecyclerView.Adapter<TeamsAdapter.TeamsViewHol
     ArrayList<Teams> teamsArrayList;
     Context context;
 
+    OnTeamClickListener otcl;
+
     public TeamsAdapter(ArrayList<Teams> teamsArrayList, Context context) {
         this.teamsArrayList = teamsArrayList;
         this.context = context;
@@ -23,6 +25,10 @@ public class TeamsAdapter extends RecyclerView.Adapter<TeamsAdapter.TeamsViewHol
     public void updateTeams(ArrayList<Teams> teamsArrayList) {
         this.teamsArrayList = teamsArrayList;
         notifyDataSetChanged();
+    }
+
+    public void setOnTeamClickListener(OnTeamClickListener otcl) {
+        this.otcl = otcl;
     }
 
     @NonNull
@@ -35,9 +41,17 @@ public class TeamsAdapter extends RecyclerView.Adapter<TeamsAdapter.TeamsViewHol
 
     @Override
     public void onBindViewHolder(@NonNull TeamsViewHolder holder, int position) {
-        Teams teams = teamsArrayList.get(position);
+        final Teams teams = teamsArrayList.get(position);
         holder.tvTeam1.setText(teams.getTeam1());
         holder.tvTeam2.setText(teams.getTeam2());
+        holder.rootView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(otcl != null) {
+                    otcl.getTeamNames(teams.getTeam1(), teams.getTeam2());
+                }
+            }
+        });
     }
 
     @Override
@@ -48,11 +62,13 @@ public class TeamsAdapter extends RecyclerView.Adapter<TeamsAdapter.TeamsViewHol
     public static class TeamsViewHolder extends RecyclerView.ViewHolder {
 
         TextView tvTeam1, tvTeam2;
+        View rootView;
 
         public TeamsViewHolder(View itemView) {
             super(itemView);
             tvTeam1 = itemView.findViewById(R.id.tvTeam1);
             tvTeam2 = itemView.findViewById(R.id.tvTeam2);
+            rootView = itemView;
         }
     }
 }
