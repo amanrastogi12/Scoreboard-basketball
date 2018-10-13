@@ -6,11 +6,12 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatDialogFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
-public class TeamDialog extends AppCompatDialogFragment {
+public class TeamsDialog extends AppCompatDialogFragment {
 
     EditText etTeam1, etTeam2;
 
@@ -22,22 +23,16 @@ public class TeamDialog extends AppCompatDialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        //Create the builder object
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-        //Create the inflater object
         LayoutInflater inflater = getActivity().getLayoutInflater();
+        View itemView = inflater.inflate(R.layout.dialog_team, null);
 
-        //Inflate the dialog layout in a view object
-        View view = inflater.inflate(R.layout.dialog_team, null);
+        etTeam1 = itemView.findViewById(R.id.etTeam1);
+        etTeam2 = itemView.findViewById(R.id.etTeam2);
 
-        //Store the references of views
-        etTeam1 = view.findViewById(R.id.etTeam1);
-        etTeam2 = view.findViewById(R.id.etTeam2);
-
-        builder.setView(view)
+        builder.setView(itemView)
                 .setTitle("Team Names")
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         listener.getTeamNames(
@@ -52,7 +47,6 @@ public class TeamDialog extends AppCompatDialogFragment {
 
                     }
                 });
-
         return builder.create();
     }
 
@@ -61,8 +55,7 @@ public class TeamDialog extends AppCompatDialogFragment {
         super.onAttach(context);
         try {
             listener = (OnPositiveButtonListener) context;
-        }
-        catch (ClassCastException cce) {
+        } catch (ClassCastException cce) {
             throw new ClassCastException(context.toString() + "Interface must be implemented");
         }
     }
