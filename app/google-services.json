@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "937312016675",
+    "firebase_url": "https://basketball-scorecard.firebaseio.com",
+    "project_id": "basketball-scorecard",
+    "storage_bucket": "basketball-scorecard.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937312016675:android:ec7c5d56f5ad9274",
+        "android_client_info": {
+          "package_name": "com.example.namankhanna.basketballscoreboard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937312016675-4goaolbimsurc3ghacmddskr8jqj2da8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.namankhanna.basketballscoreboard",
+            "certificate_hash": "1067376a12bf5bb59f015ae5126df387a96d6a82"
+          }
+        },
+        {
+          "client_id": "937312016675-429jaintjf3rrb8emjc2v6l7foelsohb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDENQ597Y56aqf7tF1UvHK9y58T1fdnrHg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "937312016675-429jaintjf3rrb8emjc2v6l7foelsohb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
