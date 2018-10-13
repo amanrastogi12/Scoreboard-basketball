@@ -18,6 +18,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -59,7 +60,19 @@ public class MainActivity extends AppCompatActivity implements TeamsDialog.OnPos
             }
         });
 
-        readFromDatabase();
+        DatabaseReference ref = firebaseDatabase.getReference();
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.hasChild("Games"))
+                    readFromDatabase();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         fabAddTeams.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements TeamsDialog.OnPos
     }
 
     private void readFromDatabase() {
-        dialog.setMessage("Updating...");
+        dialog.setMessage("Uploading...");
         dialog.show();
         DatabaseReference reference = firebaseDatabase.getReference().child("Games");
         reference.addChildEventListener(new ChildEventListener() {
