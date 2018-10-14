@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="2"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:padding="3dp"
+        android:layout_margin="3dp">
+
+        <TextView
+            android:id="@+id/tvGameTeam1"
+            android:hint="Team 1"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            android:typeface="serif"
+            android:textStyle="bold"
+            android:padding="3dp"
+            android:layout_margin="3dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvPlayers1"
+            android:padding="3dp"
+            android:layout_margin="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <TextView
+            android:id="@+id/tvScore1"
+            android:text="0"
+            android:textColor="@color/colorAccent"
+            android:textSize="40sp"
+            android:typeface="serif"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="6dp"
+            android:layout_margin="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:gravity="bottom"
+        android:layout_height="match_parent"
+        android:padding="3dp"
+        android:layout_margin="3dp">
+
+        <FrameLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <TextView
+                android:id="@+id/tvTimer1"
+                android:text="40:00"
+                android:textColor="@color/colorAccent"
+                android:textSize="30sp"
+                android:typeface="serif"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:padding="3dp"
+                android:layout_margin="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fabPlayTimer1"
+                android:padding="3dp"
+                android:layout_margin="3dp"
+                android:src="@drawable/play"
+                app:fabSize="mini"
+                android:layout_gravity="bottom"
+                android:backgroundTint="@color/colorBlue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fabPauseTimer1"
+                android:padding="3dp"
+                android:layout_margin="3dp"
+                app:fabSize="mini"
+                android:src="@drawable/pause"
+                android:layout_gravity="bottom|right"
+                android:backgroundTint="@color/colorBlue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fabAddFouls1"
+                    android:src="@drawable/add"
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    app:fabSize="mini"
+                    android:padding="3dp"
+                    android:layout_margin="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fabRemoveFouls1"
+                    android:src="@drawable/remove"
+                    android:backgroundTint="@android:color/holo_green_dark"
+                    app:fabSize="mini"
+                    android:layout_gravity="right"
+                    android:padding="3dp"
+                    android:layout_margin="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </FrameLayout>
+
+            <TextView
+                android:text="Foul"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/colorAccent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fabAddTimeouts1"
+                    android:src="@drawable/add"
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    app:fabSize="mini"
+                    android:padding="3dp"
+                    android:layout_margin="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fabRemoveTimeouts1"
+                    android:src="@drawable/remove"
+                    android:backgroundTint="@android:color/holo_green_dark"
+                    app:fabSize="mini"
+                    android:layout_gravity="right"
+                    android:padding="3dp"
+                    android:layout_margin="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </FrameLayout>
+
+            <TextView
+                android:text="TimeOut"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/colorAccent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:gravity="bottom"
+        android:layout_height="match_parent"
+        android:padding="3dp"
+        android:layout_margin="3dp">
+
+        <FrameLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <TextView
+                android:id="@+id/tvTimer2"
+                android:text="24:00"
+                android:textColor="@color/colorAccent"
+                android:textSize="30sp"
+                android:typeface="serif"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:padding="3dp"
+                android:layout_margin="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fabPlayTimer2"
+                android:padding="3dp"
+                android:layout_margin="3dp"
+                app:fabSize="mini"
+                android:src="@drawable/play"
+                android:layout_gravity="bottom"
+                android:backgroundTint="@color/colorBlue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fabPauseTimer2"
+                android:padding="3dp"
+                android:layout_margin="3dp"
+                app:fabSize="mini"
+                android:src="@drawable/pause"
+                android:layout_gravity="bottom|right"
+                android:backgroundTint="@color/colorBlue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fabAddFouls2"
+                    android:src="@drawable/add"
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    app:fabSize="mini"
+                    android:padding="3dp"
+                    android:layout_margin="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fabRemoveFouls2"
+                    android:src="@drawable/remove"
+                    android:backgroundTint="@android:color/holo_green_dark"
+                    app:fabSize="mini"
+                    android:layout_gravity="right"
+                    android:padding="3dp"
+                    android:layout_margin="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </FrameLayout>
+
+            <TextView
+                android:text="Foul"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/colorAccent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fabAddTimeouts2"
+                    android:src="@drawable/add"
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    app:fabSize="mini"
+                    android:padding="3dp"
+                    android:layout_margin="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fabRemoveTimeouts2"
+                    android:src="@drawable/remove"
+                    android:backgroundTint="@android:color/holo_green_dark"
+                    app:fabSize="mini"
+                    android:layout_gravity="right"
+                    android:padding="3dp"
+                    android:layout_margin="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </FrameLayout>
+
+            <TextView
+                android:text="TimeOut"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/colorAccent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="2"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:padding="3dp"
+        android:layout_margin="3dp">
+
+        <TextView
+            android:id="@+id/tvGameTeam2"
+            android:hint="Team 2"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:typeface="serif"
+            android:padding="3dp"
+            android:layout_margin="3dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvPlayers2"
+            android:padding="3dp"
+            android:layout_margin="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <TextView
+            android:id="@+id/tvScore2"
+            android:text="0"
+            android:textColor="@color/colorAccent"
+            android:textSize="40sp"
+            android:typeface="serif"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="6dp"
+            android:layout_margin="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</LinearLayout>

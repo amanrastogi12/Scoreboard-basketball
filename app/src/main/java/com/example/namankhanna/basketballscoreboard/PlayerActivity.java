@@ -1,5 +1,6 @@
 package com.example.namankhanna.basketballscoreboard;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -100,7 +101,10 @@ public class PlayerActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(players1.size() == 10 && players2.size() == 10) {
-                    Toast.makeText(PlayerActivity.this, "Lets Play", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(PlayerActivity.this, GameActivity.class);
+                    i.putExtra("TEAM1", team1);
+                    i.putExtra("TEAM2", team2);
+                    startActivity(i);
                 }
             }
         });

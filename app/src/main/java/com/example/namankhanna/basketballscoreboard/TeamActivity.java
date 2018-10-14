@@ -11,7 +11,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -23,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 
-public class MainActivity extends AppCompatActivity implements TeamsDialog.OnPositiveButtonListener {
+public class TeamActivity extends AppCompatActivity implements TeamsDialog.OnPositiveButtonListener {
 
     Toolbar toolbar;
     RecyclerView rvListTeams;
@@ -36,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements TeamsDialog.OnPos
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_team);
 
         toolbar = findViewById(R.id.toolbar1);
         rvListTeams = findViewById(R.id.rvListTeams);
@@ -53,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements TeamsDialog.OnPos
         teamsAdapter.setOnTeamClickListener(new OnTeamClickListener() {
             @Override
             public void getTeamNames(String t1, String t2) {
-                Intent i = new Intent(MainActivity.this, PlayerActivity.class);
+                Intent i = new Intent(TeamActivity.this, PlayerActivity.class);
                 i.putExtra("TEAM1", t1);
                 i.putExtra("TEAM2", t2);
                 startActivity(i);
